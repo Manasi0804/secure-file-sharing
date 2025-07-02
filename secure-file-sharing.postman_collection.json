@@ -1,0 +1,163 @@
+{
+  "info": {
+    "name": "🔐 Secure File Sharing – Manasi",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_id": "a77c93f7-cb7e-48dc-a559-ff4e2f448a1c"
+  },
+  "item": [
+    {
+      "name": "Signup Client",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"email\": \"testclient@example.com\",\n    \"password\": \"client123\",\n    \"role\": \"client\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/auth/signup/client",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["auth", "signup", "client"]
+        }
+      }
+    },
+    {
+      "name": "Login Client",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"email\": \"testclient@example.com\",\n    \"password\": \"client123\",\n    \"role\": \"client\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/auth/login",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["auth", "login"]
+        }
+      }
+    },
+    {
+      "name": "Upload File (Ops)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "src": ""
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8000/ops/upload",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["ops", "upload"]
+        },
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "List Files (Client)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/client/list-files",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["client", "list-files"]
+        },
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Generate Secure Download Link",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/client/download-file/{filename}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["client", "download-file", ":filename"],
+          "variable": [
+            {
+              "key": "filename",
+              "value": "example.docx"
+            }
+          ]
+        },
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Download File via Token",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/client/secure-download/{token}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["client", "secure-download", ":token"],
+          "variable": [
+            {
+              "key": "token",
+              "value": "your-secure-download-token"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
