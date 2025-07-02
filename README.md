@@ -3,6 +3,14 @@
 A secure file-sharing backend system built using **FastAPI** and **MongoDB**, with role-based authentication, file uploads, and secure download links.
 
 ---
+## 🧪 API Testing
+
+A complete Postman collection is included:
+
+📄 `secure-file-sharing.postman_collection.json`
+
+You can import it into Postman to test all key endpoints: signup, login, upload, and secure download.
+
 
 ## ✅ Features
 
@@ -13,6 +21,7 @@ A secure file-sharing backend system built using **FastAPI** and **MongoDB**, wi
 - 🌐 Fully documented Swagger UI: `http://127.0.0.1:8000/docs`
 
 ---
+
 
 ## 🛠 Setup Instructions
 
